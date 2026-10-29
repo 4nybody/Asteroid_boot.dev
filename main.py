@@ -9,6 +9,9 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    clock = pygame.time.Clock()
+    dt = 0.0
+
     while True:
         log_state()
         for event in pygame.event.get():
@@ -17,5 +20,8 @@ def main():
             pass
         screen.fill("black")
         pygame.display.flip()
+        dt = clock.tick(60) / 1000
+
+        # print(f"FPS: {clock.get_fps():.2f}, dt: {dt:.4f}")
 if __name__ == "__main__":
     main()
